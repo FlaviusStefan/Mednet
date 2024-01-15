@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit{
   registerMode = false;
+  learnmoreMode = false;
   users: any;
 
   constructor(private http: HttpClient){}
@@ -20,16 +21,24 @@ export class HomeComponent implements OnInit{
     this.registerMode = !this.registerMode;
   }
 
+  cancelRegisterMode(event: boolean){
+    this.registerMode = event;
+  }
+  
+  learnmoreToggle(){
+    this.learnmoreMode = !this.learnmoreMode;
+  }
+
+  cancelLearnmoreMode(event: boolean){
+    this.learnmoreMode = event;
+  }
+
   getUsers(){
     this.http.get('https://localhost:5003/api/users').subscribe({
       next: response => this.users = response,
       error: error => console.log(error),
       complete: () => console.log('Request has completed')
     })
-  }
-
-  cancelRegisterMode(event: boolean){
-    this.registerMode = event;
   }
 
 }
