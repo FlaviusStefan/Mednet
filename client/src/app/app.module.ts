@@ -11,6 +11,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LearnmoreComponent } from './learnmore/learnmore.component';
+import { PatientListComponent } from './patients/patient-list/patient-list.component';
+import { PatientDetailsComponent } from './patients/patient-details/patient-details.component';
+import { ListsComponent } from './lists/lists.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { LearnmoreComponent } from './learnmore/learnmore.component';
     NavComponent,
     HomeComponent,
     RegisterComponent,
-    LearnmoreComponent
+    LearnmoreComponent,
+    PatientListComponent,
+    PatientDetailsComponent,
+    ListsComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
