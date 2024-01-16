@@ -14,6 +14,7 @@ import { LearnmoreComponent } from './learnmore/learnmore.component';
 import { MedicalFileComponent } from './patients/medical-file/medical-file.component';
 import { AppointmentsComponent } from './patients/appointments/appointments.component';
 import { MenuComponent } from './patients/menu/menu.component';
+import {ToastrModule} from 'ngx-toastr';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MenuComponent } from './patients/menu/menu.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
