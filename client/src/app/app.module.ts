@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { LearnmoreComponent } from './learnmore/learnmore.component';
 import { MedicalFileComponent } from './patients/medical-file/medical-file.component';
 import { AppointmentsComponent } from './patients/appointments/appointments.component';
+import { MenuComponent } from './patients/menu/menu.component';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { AppointmentsComponent } from './patients/appointments/appointments.comp
     LearnmoreComponent,
     MedicalFileComponent,
     AppointmentsComponent,
-    
+    MenuComponent,    
   ],
   imports: [
     BrowserModule,
