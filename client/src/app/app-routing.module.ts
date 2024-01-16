@@ -9,9 +9,15 @@ import { authGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'menu', component: MenuComponent, canActivate: [authGuard]},
-  {path: 'medicalfile', component: MedicalFileComponent},
-  {path: 'appointments', component: AppointmentsComponent},
+  {path: '',
+    runGuardsAndResolvers: 'always',
+    canActivate: [authGuard],
+    children: [
+      {path: 'menu', component: MenuComponent},
+      {path: 'medicalfile', component: MedicalFileComponent},
+      {path: 'appointments', component: AppointmentsComponent},
+    ]
+  },
   {path: '**', component: HomeComponent, pathMatch: 'full'},
 ];
 
