@@ -13,6 +13,7 @@ import { MedicalFileComponent } from './patients/medical-file/medical-file.compo
 import { AppointmentsComponent } from './patients/appointments/appointments.component';
 import { MenuComponent } from './patients/menu/menu.component';
 import { SharedModule } from './_modules/shared.module';
+import { TestErrorComponent } from './errors/test-error/test-error.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SharedModule } from './_modules/shared.module';
     LearnmoreComponent,
     MedicalFileComponent,
     AppointmentsComponent,
-    MenuComponent,    
+    MenuComponent,
+    TestErrorComponent,    
   ],
   imports: [
     BrowserModule,

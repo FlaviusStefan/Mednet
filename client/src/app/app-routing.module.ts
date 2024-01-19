@@ -5,6 +5,7 @@ import { MedicalFileComponent } from './patients/medical-file/medical-file.compo
 import { AppointmentsComponent } from './patients/appointments/appointments.component';
 import { MenuComponent } from './patients/menu/menu.component';
 import { authGuard } from './_guards/auth.guard';
+import { TestErrorComponent } from './errors/test-error/test-error.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
       {path: 'appointments', component: AppointmentsComponent},
     ]
   },
+  {path: 'errors', component: TestErrorComponent},
   {path: '**', component: HomeComponent, pathMatch: 'full'},
 ];
 
