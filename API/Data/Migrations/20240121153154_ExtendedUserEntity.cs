@@ -74,8 +74,7 @@ namespace API.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Photos_AppUserId",
                 table: "Photos",
-                column: "AppUserId",
-                unique: true);
+                column: "AppUserId");
         }
 
         /// <inheritdoc />
