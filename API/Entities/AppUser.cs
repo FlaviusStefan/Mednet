@@ -16,7 +16,7 @@ public class AppUser
     public string Gender { get; set; }
     public string City { get; set; }
     public string Country { get; set; }
-    public Photo Photos { get; set; }
+    public Photo Photo { get; set; }
 
     public int GetAge()
     {
