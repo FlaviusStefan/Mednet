@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './_services/account.service';
 import { User } from './_models/user';
+import { Doctor } from './_models/doctor';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,14 @@ export class AppComponent implements OnInit{
       return;
     const user: User = JSON.parse(userString);
     this.accountService.setCurrentUser(user);
+  }
+
+  setCurrentDoctor(){
+    const doctorString = localStorage.getItem('doctor');
+    if(!doctorString)
+      return;
+    const doctor: Doctor = JSON.parse(doctorString);
+    this.accountService.setCurrentDoctor(doctor);
   }
 
 }
