@@ -21,7 +21,7 @@ export class NavComponent implements OnInit{
 
   login(){
     this.accountService.login(this.model).subscribe({
-      next: _ => this.router.navigateByUrl('/menu')      
+      next: _ => this.router.navigateByUrl('user/menu')      
     })
   }
 
@@ -32,13 +32,21 @@ export class NavComponent implements OnInit{
 
   loginDoctor(){
     this.accountService.loginDoctor(this.model).subscribe({
-      next: _ => this.router.navigateByUrl('/menu')      
+      next: _ => this.router.navigateByUrl('doctor/menu')      
     })
   }
 
   logoutDoctor(){
     this.accountService.logoutDoctor();
     this.router.navigateByUrl('/');
+  }
+
+  onSubmit() {
+    if (this.accountService.currentDoctor$) {
+      this.loginDoctor();
+    } else if (this.accountService.currentUser$){
+      this.login();
+    }
   }
 
 }
