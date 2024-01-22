@@ -1,6 +1,6 @@
 [
     {
-        "UserName": "Lisa",
+        "UserName": "Pedia",
         "Gender": "female",
         "Specialization": "Pediatrics",
         "DateOfBirth": "1956-07-22",
@@ -15,7 +15,7 @@
         ]
     },
     {
-        "UserName": "Karen",
+        "UserName": "Cardia",
         "Gender": "female",
         "Specialization": "Cardiology",
         "DateOfBirth": "1995-10-12",
@@ -30,7 +30,7 @@
         ]
     },
     {
-        "UserName": "Margo",
+        "UserName": "Derma",
         "Gender": "female",
         "Specialization": "Dermatology",
         "DateOfBirth": "1959-01-24",
@@ -45,7 +45,7 @@
         ]
     },
     {
-        "UserName": "Lois",
+        "UserName": "Ortha",
         "Gender": "female",
         "Specialization": "Orthopedics",
         "DateOfBirth": "1988-06-22",
@@ -60,7 +60,7 @@
         ]
     },
     {
-        "UserName": "Ruthie",
+        "UserName": "Onca",
         "Gender": "female",
         "Specialization": "Oncology",
         "DateOfBirth": "1956-01-12",
@@ -75,7 +75,7 @@
         ]
     },
     {
-        "UserName": "Todd",
+        "UserName": "Neuro",
         "Gender": "male",
         "Specialization": "Neurology",
         "DateOfBirth": "1950-02-07",
@@ -90,7 +90,7 @@
         ]
     },
     {
-        "UserName": "Porter",
+        "UserName": "Uro",
         "Gender": "male",
         "Specialization": "Urology",
         "DateOfBirth": "1967-04-09",
@@ -105,7 +105,7 @@
         ]
     },
     {
-        "UserName": "Mayo",
+        "UserName": "Gastro",
         "Gender": "male",
         "Specialization": "Gastroenterology",
         "DateOfBirth": "1990-03-23",
@@ -120,7 +120,7 @@
         ]
     },
     {
-        "UserName": "Skinner",
+        "UserName": "Cardio",
         "Gender": "male",
         "Specialization": "Cardiothoracic Surgery",
         "DateOfBirth": "1952-12-01",
@@ -135,7 +135,7 @@
         ]
     },
     {
-        "UserName": "Davis",
+        "UserName": "Rheumo",
         "Gender": "male",
         "Specialization": "Rheumatology",
         "DateOfBirth": "1978-03-20",

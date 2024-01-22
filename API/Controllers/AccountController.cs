@@ -73,7 +73,7 @@ namespace API.Controllers
             return await _context.Users.AnyAsync(x => x.UserName == username.ToLower()); 
         }
 
-        [HttpPost("register")]
+        [HttpPost("registerdoctor")]
         public async Task<ActionResult<DoctorDto>> RegisterDoctor(RegisterDto registerDto)
         {
             if (await DoctorExists(registerDto.Username)) 
@@ -98,7 +98,7 @@ namespace API.Controllers
             };
         }
 
-        [HttpPost("login")]
+        [HttpPost("logindoctor")]
         public async Task<ActionResult<DoctorDto>> LoginDoctor(LoginDto loginDto)
         {
             var doctor = await _context.Doctors.SingleOrDefaultAsync(x => 
