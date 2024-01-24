@@ -92,8 +92,8 @@ namespace API.Data.Migrations
                 {
                     b.HasBaseType("API.Entities.AppUser");
 
-                    b.Property<string>("Specialization")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Specialization")
+                        .HasColumnType("INTEGER");
 
                     b.HasDiscriminator().HasValue("Doctor");
                 });
