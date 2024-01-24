@@ -16,10 +16,13 @@ namespace API.Services
         }       
 
         public string CreateToken(AppUser user)
-        {
+        {   
+
+            string role = (user.Role == Role.User) ? "user" : "doctor"; 
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.NameId, user.UserName)
+                new Claim(JwtRegisteredClaimNames.NameId, user.UserName),
+                new Claim("role", role)
             };
 
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
@@ -35,30 +38,8 @@ namespace API.Services
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return tokenHandler.WriteToken(token);
-        }
-
-        public string CreateDoctorToken(Doctor doctor)
-        {
-            var claims = new List<Claim>
-            {
-                new Claim(JwtRegisteredClaimNames.NameId, doctor.UserName)
-            };
-
-            var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
-
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(7),
-                SigningCredentials = creds
-            };
-
-            var tokenHandler = new JwtSecurityTokenHandler();
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-
-            return tokenHandler.WriteToken(token);
+            var tokenString =  tokenHandler.WriteToken(token);
+            return tokenString;
         }
     }
 }

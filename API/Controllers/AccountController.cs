@@ -67,6 +67,7 @@ namespace API.Controllers
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user)
             };
+
         }
 
         private async Task<bool> UserExists(string username)
@@ -74,60 +75,5 @@ namespace API.Controllers
             return await _context.Users.AnyAsync(x => x.UserName == username.ToLower()); 
         }
 
-        [HttpPost("registerdoctor")]
-        public async Task<ActionResult<DoctorDto>> RegisterDoctor(RegisterDto registerDto)
-        {
-            if (await DoctorExists(registerDto.Username)) 
-                return BadRequest("Username is taken!");
-
-            using var hmac = new HMACSHA512();
-
-            var doctor = new Doctor
-            {
-                UserName = registerDto.Username.ToLower(),
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-                PasswordSalt = hmac.Key
-            };
-
-            _context.Doctors.Add(doctor);
-            await _context.SaveChangesAsync();
-
-            return new DoctorDto
-            {
-                Username = doctor.UserName,
-                Token = _tokenService.CreateDoctorToken(doctor)
-            };
-        }
-
-        [HttpPost("logindoctor")]
-        public async Task<ActionResult<DoctorDto>> LoginDoctor(LoginDto loginDto)
-        {
-            var doctor = await _context.Doctors.SingleOrDefaultAsync(x => 
-                x.UserName == loginDto.Username);
-
-            if (doctor == null) 
-                return Unauthorized("Invalid username!");
-
-            using var hmac = new HMACSHA512(doctor.PasswordSalt);
-
-            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
-
-            for(int i = 0; i < computedHash.Length; i++)
-            {
-                if(computedHash[i] != doctor.PasswordHash[i]) 
-                    return Unauthorized("Invalid password!");
-            }
-
-            return new DoctorDto
-            {
-                Username = doctor.UserName,
-                Token = _tokenService.CreateDoctorToken(doctor)
-            };
-        }
-
-        private async Task<bool> DoctorExists(string username)
-        {
-            return await _context.Doctors.AnyAsync(x => x.UserName == username.ToLower()); 
-        }
     }
 }

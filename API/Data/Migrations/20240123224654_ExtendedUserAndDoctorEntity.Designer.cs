@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240122013728_ExtendedUserAndDoctorEntity")]
+    [Migration("20240123224654_ExtendedUserAndDoctorEntity")]
     partial class ExtendedUserAndDoctorEntity
     {
         /// <inheritdoc />
@@ -38,6 +38,10 @@ namespace API.Data.Migrations
                     b.Property<DateOnly>("DateOfBirth")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Gender")
                         .HasColumnType("TEXT");
 
@@ -49,6 +53,9 @@ namespace API.Data.Migrations
 
                     b.Property<byte[]>("PasswordSalt")
                         .HasColumnType("BLOB");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UserName")
                         .HasColumnType("TEXT");
@@ -56,47 +63,10 @@ namespace API.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
 
-            modelBuilder.Entity("API.Entities.Doctor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("AppUser");
 
-                    b.Property<string>("City")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Country")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateOnly>("DateOfBirth")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Gender")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("LastActive")
-                        .HasColumnType("TEXT");
-
-                    b.Property<byte[]>("PasswordHash")
-                        .HasColumnType("BLOB");
-
-                    b.Property<byte[]>("PasswordSalt")
-                        .HasColumnType("BLOB");
-
-                    b.Property<string>("Specialization")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Doctors");
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("API.Entities.Photo", b =>
@@ -121,26 +91,14 @@ namespace API.Data.Migrations
                     b.ToTable("Photos");
                 });
 
-            modelBuilder.Entity("API.Entities.PhotoDoctor", b =>
+            modelBuilder.Entity("API.Entities.Doctor", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                    b.HasBaseType("API.Entities.AppUser");
 
-                    b.Property<int>("DoctorId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("PublicId")
+                    b.Property<string>("Specialization")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Url")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DoctorId");
-
-                    b.ToTable("PhotosDoctor");
+                    b.HasDiscriminator().HasValue("Doctor");
                 });
 
             modelBuilder.Entity("API.Entities.Photo", b =>
@@ -154,23 +112,7 @@ namespace API.Data.Migrations
                     b.Navigation("AppUser");
                 });
 
-            modelBuilder.Entity("API.Entities.PhotoDoctor", b =>
-                {
-                    b.HasOne("API.Entities.Doctor", "Doctor")
-                        .WithMany("Photos")
-                        .HasForeignKey("DoctorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Doctor");
-                });
-
             modelBuilder.Entity("API.Entities.AppUser", b =>
-                {
-                    b.Navigation("Photos");
-                });
-
-            modelBuilder.Entity("API.Entities.Doctor", b =>
                 {
                     b.Navigation("Photos");
                 });

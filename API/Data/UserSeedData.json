@@ -7,6 +7,7 @@
         "LastActive": "2020-06-21",
         "City": "Greenbush",
         "Country": "Martinique",
+        "Role": 0,
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/women/54.jpg"
@@ -21,6 +22,7 @@
         "LastActive": "2020-05-06",
         "City": "Celeryville",
         "Country": "Grenada",
+        "Role": 0,
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/women/50.jpg"
@@ -35,6 +37,7 @@
         "LastActive": "2020-05-12",
         "City": "Rosewood",
         "Country": "Svalbard and Jan Mayen Islands",
+        "Role": 0,
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/women/14.jpg"
@@ -49,6 +52,7 @@
         "LastActive": "2020-06-17",
         "City": "Orviston",
         "Country": "Zimbabwe",
+        "Role": 0,
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/women/11.jpg"
@@ -63,6 +67,7 @@
         "LastActive": "2020-06-21",
         "City": "Germanton",
         "Country": "Antigua and Barbuda",
+        "Role": 0,
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/women/84.jpg"
@@ -77,6 +82,7 @@
         "LastActive": "2020-05-16",
         "City": "Cliff",
         "Country": "British Indian Ocean Territory",
+        "Role": 0,
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/men/90.jpg"
@@ -91,6 +97,7 @@
         "LastActive": "2020-06-23",
         "City": "Welda",
         "Country": "Christmas Island",
+        "Role": 0,
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/men/87.jpg"
@@ -105,6 +112,7 @@
         "LastActive": "2020-05-17",
         "City": "Clarence",
         "Country": "Burkina Faso",
+        "Role": 0,
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/men/57.jpg"
@@ -119,6 +127,7 @@
         "LastActive": "2020-06-07",
         "City": "Herald",
         "Country": "Poland",
+        "Role": 0,
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/men/11.jpg"
@@ -133,6 +142,7 @@
         "LastActive": "2020-06-11",
         "City": "Lupton",
         "Country": "Luxembourg",
+        "Role": 0,
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/men/93.jpg"
