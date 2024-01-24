@@ -38,7 +38,6 @@ export class AccountService {
       })
     )
   }
-
   setCurrentUser(user: User) {
     this.currentUserSource.next(user);
   }
@@ -48,35 +47,4 @@ export class AccountService {
     this.currentUserSource.next(null);
   }
 
-  loginDoctor(model: any){
-    return this.http.post<Doctor>(this.baseUrl + 'account/logindoctor', model).pipe(
-      map((response: Doctor) => {
-        const doctor = response;
-        if (doctor) {
-          localStorage.setItem('doctor', JSON.stringify(doctor));
-          this.currentDoctorSource.next(doctor);
-        }
-      })
-    )
-  }
-
-  registerDoctor(model: any){
-    return this.http.post<Doctor>(this.baseUrl + 'account/registerdoctor', model).pipe(
-      map(doctor=> {
-        if(doctor){
-          localStorage.setItem('doctor',JSON.stringify(doctor));
-          this.currentDoctorSource.next(doctor);
-        }
-      })
-    )
-  }
-
-  setCurrentDoctor(doctor: Doctor) {
-    this.currentDoctorSource.next(doctor);
-  }
-
-  logoutDoctor(){
-    localStorage.removeItem('doctor');
-    this.currentDoctorSource.next(null);
-  }
 }

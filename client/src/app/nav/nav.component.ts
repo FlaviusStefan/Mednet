@@ -30,23 +30,4 @@ export class NavComponent implements OnInit{
     this.router.navigateByUrl('/');
   }
 
-  loginDoctor(){
-    this.accountService.loginDoctor(this.model).subscribe({
-      next: _ => this.router.navigateByUrl('doctor/menu')      
-    })
-  }
-
-  logoutDoctor(){
-    this.accountService.logoutDoctor();
-    this.router.navigateByUrl('/');
-  }
-
-  onSubmit() {
-    if (this.accountService.currentDoctor$) {
-      this.loginDoctor();
-    } else if (this.accountService.currentUser$){
-      this.login();
-    }
-  }
-
 }

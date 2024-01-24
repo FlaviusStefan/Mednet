@@ -29,18 +29,6 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  registerDoctor(){
-    this.accountService.registerDoctor(this.model).subscribe({
-      next: () => {
-        this.cancel();
-      },
-      error: error => {
-        this.toastr.error(error.error)
-        console.log(error);
-      } 
-    })
-  }
-
   cancel(){
     this.cancelRegister.emit(false);
   }

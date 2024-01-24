@@ -25,12 +25,4 @@ export class AppComponent implements OnInit{
     this.accountService.setCurrentUser(user);
   }
 
-  setCurrentDoctor(){
-    const doctorString = localStorage.getItem('doctor');
-    if(!doctorString)
-      return;
-    const doctor: Doctor = JSON.parse(doctorString);
-    this.accountService.setCurrentDoctor(doctor);
-  }
-
 }
