@@ -64,10 +64,10 @@ namespace API.Data.Migrations
                 nullable: false,
                 defaultValue: 0);
 
-            migrationBuilder.AddColumn<int>(
+            migrationBuilder.AddColumn<string>(
                 name: "Specialization",
                 table: "Users",
-                type: "INTEGER",
+                type: "TEXT",
                 nullable: true);
 
             migrationBuilder.CreateTable(
