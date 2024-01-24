@@ -1,8 +1,7 @@
 namespace API.DTOs
 {
-    public class DoctorDto
+    public class DoctorDto : UserDto
     {
-        public string Username { get; set; }
-        public string Token { get; set; }
+        
     }
 }

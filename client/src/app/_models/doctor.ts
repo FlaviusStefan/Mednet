@@ -1,4 +1,4 @@
-export interface Doctor {
-    username: string;
-    token: string;
+import { User } from "./user";
+
+export interface Doctor extends User{
 }
