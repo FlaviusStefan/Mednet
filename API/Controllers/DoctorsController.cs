@@ -1,32 +1,39 @@
-using API.Data;
+using API.DTOs;
 using API.Entities;
+using API.Interfaces;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
     [Authorize]
     public class DoctorsController : BaseApiController
     {
-        private readonly DataContext _context;
-        public DoctorsController(DataContext context)
+        private readonly IDoctorRepository _doctorRepository;
+        private readonly IMapper _mapper;
+        public DoctorsController(IDoctorRepository doctorRepository, IMapper mapper)
         {
-            _context = context;
+            _mapper = mapper;
+            _doctorRepository = doctorRepository;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Doctor>>> GetDoctors()
+        public async Task<ActionResult<IEnumerable<DoctorDto>>> GetDoctors()
         {
-            var doctors = await _context.Doctors.ToListAsync();
+            var doctors = await _doctorRepository.GetDoctorsAsync();
 
-            return doctors;
+            var doctorsToReturn = _mapper.Map<IEnumerable<DoctorDto>>(doctors);
+
+            return Ok(doctorsToReturn);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Doctor>> GetDoctor(int id)
+        public async Task<ActionResult<DoctorDto>> GetDoctor(string username)
         {
-            return await _context.Doctors.FindAsync(id);
+            var doctor = await _doctorRepository.GetDoctorByUsernameAsync(username);
+
+            return _mapper.Map<DoctorDto>(doctor);
         }
     }
 }
