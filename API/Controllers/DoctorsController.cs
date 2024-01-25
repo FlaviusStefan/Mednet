@@ -1,5 +1,4 @@
 using API.DTOs;
-using API.Entities;
 using API.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -12,6 +11,7 @@ namespace API.Controllers
     {
         private readonly IDoctorRepository _doctorRepository;
         private readonly IMapper _mapper;
+        
         public DoctorsController(IDoctorRepository doctorRepository, IMapper mapper)
         {
             _mapper = mapper;
@@ -21,19 +21,15 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DoctorDto>>> GetDoctors()
         {
-            var doctors = await _doctorRepository.GetDoctorsAsync();
+            var doctors = await _doctorRepository.GetDoctorsDTOAsync();
 
-            var doctorsToReturn = _mapper.Map<IEnumerable<DoctorDto>>(doctors);
-
-            return Ok(doctorsToReturn);
+            return Ok(doctors);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{username}")]
         public async Task<ActionResult<DoctorDto>> GetDoctor(string username)
         {
-            var doctor = await _doctorRepository.GetDoctorByUsernameAsync(username);
-
-            return _mapper.Map<DoctorDto>(doctor);
+            return await _doctorRepository.GetDoctorAsync(username);       
         }
     }
 }
