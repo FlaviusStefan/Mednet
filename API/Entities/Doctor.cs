@@ -4,7 +4,7 @@ namespace API.Entities
 {
     public class Doctor : AppUser
     {
-        public Specialization Specialization { get; set; }
+        public string Specialization { get; set; }
     }
 
     public enum Specialization {

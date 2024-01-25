@@ -4,6 +4,6 @@ namespace API.DTOs
 {
     public class DoctorDto : MemberDto
     {
-        public Specialization Specialization { get; set; }
+        public string Specialization { get; set; }
     }
 }
