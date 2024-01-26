@@ -15,7 +15,6 @@ namespace API.Data
         {
             _mapper = mapper;
             _context = context;
-
         }
 
         public async Task<IEnumerable<Doctor>> GetDoctorsAsync()
@@ -60,8 +59,6 @@ namespace API.Data
         public void Update(Doctor doctor)
         {
             _context.Entry(doctor).State = EntityState.Modified;
-        }
-
-        
+        }        
     }
 }
