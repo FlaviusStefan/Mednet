@@ -2,7 +2,7 @@ using API.Entities;
 
 namespace API.DTOs
 {
-    public class DoctorDto : MemberDto
+    public class DoctorDto : AppUserDto
     {
         public string Specialization { get; set; }
     }

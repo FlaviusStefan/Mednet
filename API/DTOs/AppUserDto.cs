@@ -2,7 +2,7 @@ using API.Entities;
 
 namespace API.DTOs
 {
-    public class MemberDto
+    public class AppUserDto
     {
         public int Id { get; set; }
         public string UserName { get; set; }

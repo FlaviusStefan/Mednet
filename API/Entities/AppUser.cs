@@ -17,10 +17,6 @@ namespace API.Entities
         public List<Photo> Photos { get; set; } = new ();
         public Role Role {get;set;}
 
-        // public int GetAge()
-        // {
-        //     return DateOfBirth.CalculateAge();
-        // }
     
     }
 

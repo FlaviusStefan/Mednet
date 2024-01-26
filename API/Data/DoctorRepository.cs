@@ -17,13 +17,6 @@ namespace API.Data
             _context = context;
         }
 
-        public async Task<IEnumerable<Doctor>> GetDoctorsAsync()
-        {
-            return await _context.Doctors
-                .Include(p => p.Photos)
-                .ToListAsync();
-        }
-
         public async Task<Doctor> GetDoctorByIdAsync(int id)
         {
             return await _context.Doctors.FindAsync(id);
@@ -34,6 +27,13 @@ namespace API.Data
             return await _context.Doctors
                 .Include(p => p.Photos)
                 .SingleOrDefaultAsync(x => x.UserName == username);
+        }
+
+        public async Task<IEnumerable<Doctor>> GetDoctorsAsync()
+        {
+            return await _context.Doctors
+                .Include(p => p.Photos)
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<DoctorDto>> GetDoctorsDTOAsync()

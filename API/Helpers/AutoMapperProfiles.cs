@@ -9,9 +9,10 @@ namespace API.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<AppUser,MemberDto>()
+            CreateMap<AppUser,AppUserDto>()
                 .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.CalculateAge()));
             CreateMap<Doctor,DoctorDto>();
+            CreateMap<Patient, PatientDto>();
             CreateMap<Photo,PhotoDto>();
         }   
     }

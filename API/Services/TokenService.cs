@@ -18,7 +18,7 @@ namespace API.Services
         public string CreateToken(AppUser user)
         {   
 
-            string role = (user.Role == Role.User) ? "user" : "doctor"; 
+            string role = (user.Role == Role.Patient) ? "user" : "doctor"; 
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.NameId, user.UserName),

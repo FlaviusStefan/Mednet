@@ -1,7 +1,7 @@
 namespace API.Entities
 {
     public enum Role{
-        User,
+        Patient,
         Doctor
     }
 

@@ -11,7 +11,6 @@ namespace API.Controllers
     {
         private readonly IDoctorRepository _doctorRepository;
         private readonly IMapper _mapper;
-        
         public DoctorsController(IDoctorRepository doctorRepository, IMapper mapper)
         {
             _mapper = mapper;
