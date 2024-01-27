@@ -11,8 +11,10 @@ namespace API.Helpers
         {
             CreateMap<AppUser,AppUserDto>()
                 .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.CalculateAge()));
-            CreateMap<Doctor,DoctorDto>();
-            CreateMap<Patient, PatientDto>();
+            CreateMap<Doctor,DoctorDto>()
+                .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.CalculateAge()));             
+            CreateMap<Patient, PatientDto>()
+                .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.CalculateAge())); 
             CreateMap<Photo,PhotoDto>();
         }   
     }
