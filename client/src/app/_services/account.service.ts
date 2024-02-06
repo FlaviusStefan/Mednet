@@ -33,30 +33,6 @@ export class AccountService {
     )
   }
 
-  loginDoctor(model: any){
-    return this.http.post<Doctor>(this.baseUrl + 'account/logindoctor', model).pipe(
-      map((response: Doctor) => {
-        const doctor = response;
-        if (doctor) {
-          localStorage.setItem('doctor', JSON.stringify(doctor));
-          this.currentDoctorSource.next(doctor);
-        }
-      })
-    )
-  }
-
-  loginPatient(model: any){
-    return this.http.post<Patient>(this.baseUrl + 'account/loginpatient', model).pipe(
-      map((response: Patient) => {
-        const patient = response;
-        if (patient) {
-          localStorage.setItem('user', JSON.stringify(patient));
-          this.currentPatientSource.next(patient);
-        }
-      })
-    )
-  }
-
   register(model: any){
     return this.http.post<User>(this.baseUrl + 'account/register', model).pipe(
       map(user=> {
@@ -72,27 +48,9 @@ export class AccountService {
     this.currentUserSource.next(user);
   }
 
-  setCurrentDoctor(doctor: Doctor) {
-    this.currentDoctorSource.next(doctor);
-  }
-
-  setCurrentPatient(patient: Patient) {
-    this.currentPatientSource.next(patient);
-  }
-
   logout(){
     localStorage.removeItem('user');
     this.currentUserSource.next(null);
-  }
-
-  logoutDoctor(){
-    localStorage.removeItem('doctor');
-    this.currentDoctorSource.next(null);
-  }
-
-  logoutPatient(){
-    localStorage.removeItem('patient');
-    this.currentPatientSource.next(null);
   }
 
 }
