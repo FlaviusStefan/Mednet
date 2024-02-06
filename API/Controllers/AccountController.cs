@@ -42,6 +42,8 @@ namespace API.Controllers
             {
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user)
+                // Role = (user.Role == Role.Doctor) ? Role.Doctor : Role.Patient 
+                // Not sure if I want doctors to be able to register by themselves
             };
         }
 
