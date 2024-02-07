@@ -9,9 +9,7 @@ import { User } from '../_models/user';
 export class AccountService {
   baseUrl = 'https://localhost:5003/api/';
   private currentUserSource = new BehaviorSubject<User | null>(null);
-
   currentUser$ = this.currentUserSource.asObservable();
-
 
   constructor(private http: HttpClient) { }
 
