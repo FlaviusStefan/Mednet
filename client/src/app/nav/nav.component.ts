@@ -23,31 +23,12 @@ export class NavComponent implements OnInit{
   ngOnInit(): void {
   }
 
-  // login(){
-  //   this.accountService.login(this.model).subscribe({
-  //     next: _ => this.router.navigateByUrl('user/menu')      
-  //   })
-  // }
-
-  login() {
+  login(){
     this.accountService.login(this.model).subscribe({
-      next: () => {
-        this.accountDoctorService.currentDoctor$.subscribe(doctor => {
-          if (doctor) {
-            this.router.navigateByUrl('doctor/menu');
-          } else {
-            this.accountPatientService.currentPatient$.subscribe(patient => {
-              if (patient) {
-                this.router.navigateByUrl('patient/menu');
-              } 
-            });
-          }
-        });
-      }
-    });
+      next: _ => this.router.navigateByUrl('user/menu')      
+    })
   }
   
- 
   loginAsDoctor(){
     this.accountDoctorService.loginAsDoctor(this.model).subscribe({
       next: _ => this.router.navigateByUrl('doctor/menu')      
