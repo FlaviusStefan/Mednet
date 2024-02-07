@@ -14,7 +14,7 @@ export const authDoctorGuard: CanActivateFn = (route, state) => {
       if (doctor) 
         return true;
       else {
-        toastr.error('You are not allowed!');
+        toastr.error('You are not allowed! This is DOCTOR Area');
         return false;
       }
     })

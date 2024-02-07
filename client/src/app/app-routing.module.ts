@@ -15,32 +15,32 @@ import { authPatientGuard } from './_guards/auth-patient.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  // {path: 'user',
-  //   runGuardsAndResolvers: 'always',
-  //   canActivate: [authGuard],
-  //   children: [
-  //     {path: 'menu', component: MenuComponent},
-  //     {path: 'medicalfile', component: MedicalFileComponent},
-  //     {path: 'appointments', component: AppointmentsComponent},
-  //   ]
-  // },
-  {path: 'patient',
+  {path: 'user',
     runGuardsAndResolvers: 'always',
-    canActivate: [authPatientGuard],
+    canActivate: [authGuard],
     children: [
       {path: 'menu', component: MenuComponent},
       {path: 'medicalfile', component: MedicalFileComponent},
       {path: 'appointments', component: AppointmentsComponent},
     ]
   },
-  {path: 'doctor',
-    runGuardsAndResolvers: 'always',
-    canActivate: [authDoctorGuard],
-    children: [
-      {path: 'panel', component: PanelComponent},
-      {path: 'mycases', component: MyCasesComponent},
-    ]
-  },
+  // {path: 'patient',
+  //   runGuardsAndResolvers: 'always',
+  //   canActivate: [authPatientGuard],
+  //   children: [
+  //     {path: 'menu', component: MenuComponent},
+  //     {path: 'medicalfile', component: MedicalFileComponent},
+  //     {path: 'appointments', component: AppointmentsComponent},
+  //   ]
+  // },
+  // {path: 'doctor',
+  //   runGuardsAndResolvers: 'always',
+  //   canActivate: [authDoctorGuard],
+  //   children: [
+  //     {path: 'panel', component: PanelComponent},
+  //     {path: 'mycases', component: MyCasesComponent},
+  //   ]
+  // },
   {path: 'errors', component: TestErrorComponent},
   {path: 'not-found', component: NotFoundComponent},
   {path: 'server-error', component: ServerErrorComponent},

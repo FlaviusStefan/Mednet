@@ -14,7 +14,7 @@ export const authPatientGuard: CanActivateFn = (route, state) => {
       if (patient) 
         return true;
       else {
-        toastr.error('You are not allowed!');
+        toastr.error('You are not allowed! This is PATIENT Area');
         return false;
       }
     })
