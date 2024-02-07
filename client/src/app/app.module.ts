@@ -17,6 +17,8 @@ import { TestErrorComponent } from './errors/test-error/test-error.component';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
+import { PanelComponent } from './doctors/panel/panel.component';
+import { MyCasesComponent } from './doctors/my-cases/my-cases.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
     MenuComponent,
     TestErrorComponent,
     NotFoundComponent,
-    ServerErrorComponent,    
+    ServerErrorComponent,
+    PanelComponent,
+    MyCasesComponent,    
   ],
   imports: [
     BrowserModule,
