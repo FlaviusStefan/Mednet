@@ -11,12 +11,8 @@ import { Patient } from '../_models/patient';
 export class AccountService {
   baseUrl = 'https://localhost:5003/api/';
   private currentUserSource = new BehaviorSubject<User | null>(null);
-  private currentDoctorSource = new BehaviorSubject<Doctor | null>(null);
-  private currentPatientSource = new BehaviorSubject<Patient | null>(null);
 
   currentUser$ = this.currentUserSource.asObservable();
-  currentDoctor$ = this.currentDoctorSource.asObservable();
-  currentPatient$ = this.currentPatientSource.asObservable();
 
 
   constructor(private http: HttpClient) { }
