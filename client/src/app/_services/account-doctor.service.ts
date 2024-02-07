@@ -5,7 +5,8 @@ import { Doctor } from '../_models/doctor';
 @Injectable({
   providedIn: 'root'
 })
-export class DoctoraccountService {
+export class AccountDoctorService {
+
   private currentDoctorSource = new BehaviorSubject<Doctor | null>(null);
   currentDoctor$ = this.currentDoctorSource.asObservable();
 
