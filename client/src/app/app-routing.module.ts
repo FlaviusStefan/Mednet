@@ -24,23 +24,23 @@ const routes: Routes = [
       {path: 'appointments', component: AppointmentsComponent},
     ]
   },
-  // {path: 'patient',
-  //   runGuardsAndResolvers: 'always',
-  //   canActivate: [authPatientGuard],
-  //   children: [
-  //     {path: 'menu', component: MenuComponent},
-  //     {path: 'medicalfile', component: MedicalFileComponent},
-  //     {path: 'appointments', component: AppointmentsComponent},
-  //   ]
-  // },
-  // {path: 'doctor',
-  //   runGuardsAndResolvers: 'always',
-  //   canActivate: [authDoctorGuard],
-  //   children: [
-  //     {path: 'panel', component: PanelComponent},
-  //     {path: 'mycases', component: MyCasesComponent},
-  //   ]
-  // },
+  {path: 'patient',
+    runGuardsAndResolvers: 'always',
+    canActivate: [authPatientGuard],
+    children: [
+      {path: 'menu', component: MenuComponent},
+      {path: 'medicalfile', component: MedicalFileComponent},
+      {path: 'appointments', component: AppointmentsComponent},
+    ]
+  },
+  {path: 'doctor',
+    runGuardsAndResolvers: 'always',
+    canActivate: [authDoctorGuard],
+    children: [
+      {path: 'panel', component: PanelComponent},
+      {path: 'my-cases', component: MyCasesComponent},
+    ]
+  },
   {path: 'errors', component: TestErrorComponent},
   {path: 'not-found', component: NotFoundComponent},
   {path: 'server-error', component: ServerErrorComponent},

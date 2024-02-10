@@ -4,6 +4,7 @@
        <!-- This is the version with NO "Mednet" BUTTON <a *ngIf="!(accountService.currentUser$ | async)" class="navbar-brand" routerLink="/">Mednet</a> -->
 
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
           <ng-container *ngIf="accountService.currentUser$ | async">
             <li class="nav-item">
               <a class="nav-link" routerLink="user/menu" routerLinkActive="active">Menu</a>
@@ -14,7 +15,29 @@
             <li class="nav-item">
               <a class="nav-link" routerLink="user/appointments" routerLinkActive="active">Appointments</a>
             </li> 
-          </ng-container>         
+          </ng-container>
+          
+          <ng-container *ngIf="accountPatientService.currentPatient$ | async">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="patient/menu" routerLinkActive="active">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="patient/medicalfile" routerLinkActive="active">Medical File</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="patient/appointments" routerLinkActive="active">Appointments</a>
+            </li> 
+          </ng-container>
+
+          <ng-container *ngIf="accountDoctorService.currentDoctor$ | async">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="doctor/panel" routerLinkActive="active">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="user/my-cases" routerLinkActive="active">Medical File</a>
+            </li>            
+          </ng-container>
+
         </ul>
 
         <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
