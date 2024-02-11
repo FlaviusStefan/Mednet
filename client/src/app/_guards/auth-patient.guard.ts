@@ -2,11 +2,11 @@ import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs';
-import { AccountPatientService } from '../_services/account-patient.service';
+import { AccountService } from '../_services/account.service';
 
 export const authPatientGuard: CanActivateFn = (route, state) => {
 
-  const accountPatientService = inject(AccountPatientService);
+  const accountPatientService = inject(AccountService);
   const toastr = inject(ToastrService);
 
   return accountPatientService.currentPatient$.pipe(

@@ -1,23 +1,10 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark bg-primary">
-    <div class="container">
+    <div class="container" *ngIf=" {doctor: accountService.currentDoctor$ | async, patient: accountService.currentPatient$ | async} as observable ">
       <a class="navbar-brand">Mednet</a>
        <!-- This is the version with NO "Mednet" BUTTON <a *ngIf="!(accountService.currentUser$ | async)" class="navbar-brand" routerLink="/">Mednet</a> -->
 
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-
-          <ng-container *ngIf="accountService.currentUser$ | async">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="user/menu" routerLinkActive="active">Menu</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="user/medicalfile" routerLinkActive="active">Medical File</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="user/appointments" routerLinkActive="active">Appointments</a>
-            </li> 
-          </ng-container>
-          
-          <ng-container *ngIf="accountPatientService.currentPatient$ | async">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">         
+          <ng-container *ngIf="observable.patient">
             <li class="nav-item">
               <a class="nav-link" routerLink="patient/menu" routerLinkActive="active">Menu</a>
             </li>
@@ -29,26 +16,35 @@
             </li> 
           </ng-container>
 
-          <ng-container *ngIf="accountDoctorService.currentDoctor$ | async">
+          <ng-container *ngIf="observable.doctor">
             <li class="nav-item">
               <a class="nav-link" routerLink="doctor/panel" routerLinkActive="active">Menu</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="user/my-cases" routerLinkActive="active">Medical File</a>
+              <a class="nav-link" routerLink="doctor/my-cases" routerLinkActive="active">Medical File</a>
             </li>            
           </ng-container>
-
         </ul>
 
-        <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
-          <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome, {{user.username | titlecase}} </a>
+        <!-- Logout button -->
+        <div class="dropdown" *ngIf="observable.patient" dropdown>
+          <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome, {{observable.patient.username| titlecase}} </a>
           <div class="dropdown-menu" *dropdownMenu>
             <a class="dropdown-item">Edit Profile</a>
             <a class="dropdown-item" (click)="logout()">Logout</a>
           </div>
         </div>
 
-        <form *ngIf="!(accountService.currentUser$ | async) " #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
+        <div class="dropdown" *ngIf="observable.doctor" dropdown>
+          <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome, {{observable.doctor.username | titlecase}} </a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a class="dropdown-item">Edit Profile</a>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
+          </div>
+        </div>
+
+        <!-- Login button -->
+        <form *ngIf="!(observable.doctor || observable.patient) " #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
           <input
                 name="username"
                 [(ngModel)]="model.username"
