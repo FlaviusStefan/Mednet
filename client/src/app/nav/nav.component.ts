@@ -22,7 +22,7 @@ export class NavComponent implements OnInit{
 
   login(){
     this.accountService.login(this.model).subscribe({
-      next: value => console.log(value)
+      next: value => console.log(value),      
     })
   }  
 

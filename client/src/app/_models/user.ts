@@ -1,5 +1,5 @@
-import { Doctor } from "./doctor";
-import { Patient } from "./patient";
+import { AccountDoctor } from "./accountdoctor";
+import { AccountPatient } from "./accountpatient";
 import { Role } from "./role";
 
 export interface User {

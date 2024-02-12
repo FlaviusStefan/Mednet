@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { User } from '../_models/user';
 import { Router } from '@angular/router';
-import { Doctor } from '../_models/doctor';
-import { Patient } from '../_models/patient';
+import { AccountDoctor } from '../_models/accountdoctor';
+import { AccountPatient } from '../_models/accountpatient';
 import { Role } from '../_models/role';
   
 @Injectable({
@@ -12,11 +12,11 @@ import { Role } from '../_models/role';
 })
 export class AccountService {
   baseUrl = 'https://localhost:5003/api/';
-  private currentPatientSource = new BehaviorSubject<Patient | null>(null);
-  private currentDoctorSource = new BehaviorSubject<Doctor | null>(null);
+  private currentPatientSource = new BehaviorSubject<AccountPatient | null>(null);
+  private currentDoctorSource = new BehaviorSubject<AccountDoctor | null>(null);
 
-  currentPatient$: Observable<Patient | null>;
-  currentDoctor$: Observable<Doctor | null>;
+  currentPatient$: Observable<AccountPatient | null>;
+  currentDoctor$: Observable<AccountDoctor | null>;
 
   constructor(private http: HttpClient, private router: Router) 
   { 
@@ -35,7 +35,7 @@ export class AccountService {
             this.currentPatientSource.next(user);   
           } else if (user.role === Role.Doctor) {
             this.router.navigateByUrl("doctor/panel");
-            this.currentDoctorSource.next(user as Doctor);      
+            this.currentDoctorSource.next(user as AccountDoctor);      
           }   
         }
       })
@@ -58,7 +58,7 @@ export class AccountService {
       this.currentPatientSource.next(user);
     }
     else if (user.role === Role.Doctor) {
-      this.currentDoctorSource.next(user as Doctor);     
+      this.currentDoctorSource.next(user as AccountDoctor);     
     }
   }
 
