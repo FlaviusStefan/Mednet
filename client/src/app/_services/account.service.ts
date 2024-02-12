@@ -6,12 +6,13 @@ import { Router } from '@angular/router';
 import { AccountDoctor } from '../_models/accountdoctor';
 import { AccountPatient } from '../_models/accountpatient';
 import { Role } from '../_models/role';
+import { environment } from 'src/environments/environment';
   
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = 'https://localhost:5003/api/';
+  baseUrl = environment.apiUrl
   private currentPatientSource = new BehaviorSubject<AccountPatient | null>(null);
   private currentDoctorSource = new BehaviorSubject<AccountDoctor | null>(null);
 
