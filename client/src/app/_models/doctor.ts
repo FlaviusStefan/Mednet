@@ -7,8 +7,8 @@ export interface Doctor {
     userName: string;
     role: string;
     age: number;
-    created: string;
-    lastActive: string;
+    created: Date;
+    lastActive: Date;
     gender: string;
     city: string;
     country: string;
