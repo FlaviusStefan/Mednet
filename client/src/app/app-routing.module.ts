@@ -11,6 +11,7 @@ import { authDoctorGuard } from './_guards/auth-doctor.guard';
 import { PanelComponent } from './doctors/panel/panel.component';
 import { MyCasesComponent } from './doctors/my-cases/my-cases.component';
 import { authPatientGuard } from './_guards/auth-patient.guard';
+import { AvailableDoctorsComponent } from './patients/available-doctors/available-doctors.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
       {path: 'menu', component: MenuComponent},
       {path: 'medicalfile', component: MedicalFileComponent},
       {path: 'appointments', component: AppointmentsComponent},
+      {path: 'available-doctors', component: AvailableDoctorsComponent},
     ]
   },
   {path: 'doctors',
