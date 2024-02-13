@@ -14,7 +14,7 @@ import { authPatientGuard } from './_guards/auth-patient.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'patient',
+  {path: 'patients',
     runGuardsAndResolvers: 'always',
     canActivate: [authPatientGuard],
     children: [
@@ -23,7 +23,7 @@ const routes: Routes = [
       {path: 'appointments', component: AppointmentsComponent},
     ]
   },
-  {path: 'doctor',
+  {path: 'doctors',
     runGuardsAndResolvers: 'always',
     canActivate: [authDoctorGuard],
     children: [

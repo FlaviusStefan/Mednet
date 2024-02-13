@@ -32,10 +32,10 @@ export class AccountService {
         if (user) {
           localStorage.setItem('user', JSON.stringify(user));
           if(user.role === Role.Patient) {
-            this.router.navigateByUrl("patient/menu");
+            this.router.navigateByUrl("patients/menu");
             this.currentPatientSource.next(user);   
           } else if (user.role === Role.Doctor) {
-            this.router.navigateByUrl("doctor/panel");
+            this.router.navigateByUrl("doctors/panel");
             this.currentDoctorSource.next(user as AccountDoctor);      
           }   
         }

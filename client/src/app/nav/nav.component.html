@@ -6,22 +6,22 @@
         <ul class="navbar-nav me-auto mb-2 mb-md-0">         
           <ng-container *ngIf="observable.patient">
             <li class="nav-item">
-              <a class="nav-link" routerLink="patient/menu" routerLinkActive="active">Menu</a>
+              <a class="nav-link" routerLink="patients/menu" routerLinkActive="active">Menu</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="patient/medicalfile" routerLinkActive="active">Medical File</a>
+              <a class="nav-link" routerLink="patients/medicalfile" routerLinkActive="active">Medical File</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="patient/appointments" routerLinkActive="active">Appointments</a>
+              <a class="nav-link" routerLink="patients/appointments" routerLinkActive="active">Appointments</a>
             </li> 
           </ng-container>
 
           <ng-container *ngIf="observable.doctor">
             <li class="nav-item">
-              <a class="nav-link" routerLink="doctor/panel" routerLinkActive="active">Panel</a>
+              <a class="nav-link" routerLink="doctors/panel" routerLinkActive="active">Panel</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="doctor/my-cases" routerLinkActive="active">Medical File</a>
+              <a class="nav-link" routerLink="doctors/my-cases" routerLinkActive="active">Medical File</a>
             </li>            
           </ng-container>
         </ul>
