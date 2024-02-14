@@ -21,7 +21,7 @@ export class MembersService {
   }
 
   getDoctors(){
-    return this.http.get<Doctor[]>(this.baseUrl + 'doctors')
+    return this.http.get<Doctor[]>(this.baseUrl + 'doctors', this.getHttpOptions())
   }
 
   getDoctor(username: string){

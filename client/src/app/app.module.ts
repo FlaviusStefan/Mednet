@@ -19,6 +19,7 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { PanelComponent } from './doctors/panel/panel.component';
 import { MyCasesComponent } from './doctors/my-cases/my-cases.component';
+import { AvailableDoctorsComponent } from './patients/available-doctors/available-doctors.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MyCasesComponent } from './doctors/my-cases/my-cases.component';
     NotFoundComponent,
     ServerErrorComponent,
     PanelComponent,
-    MyCasesComponent,    
+    MyCasesComponent,
+    AvailableDoctorsComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,7 @@ import { MyCasesComponent } from './doctors/my-cases/my-cases.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
