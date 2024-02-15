@@ -20,6 +20,7 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { PanelComponent } from './doctors/panel/panel.component';
 import { MyCasesComponent } from './doctors/my-cases/my-cases.component';
 import { AvailableDoctorsComponent } from './patients/available-doctors/available-doctors.component';
+import { LaboratoryReportsComponent } from './patients/laboratory-reports/laboratory-reports.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AvailableDoctorsComponent } from './patients/available-doctors/availabl
     PanelComponent,
     MyCasesComponent,
     AvailableDoctorsComponent,
+    LaboratoryReportsComponent,
   ],
   imports: [
     BrowserModule,
